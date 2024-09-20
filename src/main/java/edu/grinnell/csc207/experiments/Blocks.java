@@ -2,6 +2,8 @@ package edu.grinnell.csc207.experiments;
 
 import edu.grinnell.csc207.blocks.AsciiBlock;
 import edu.grinnell.csc207.blocks.Boxed;
+import edu.grinnell.csc207.blocks.Empty;
+import edu.grinnell.csc207.blocks.Grid;
 import edu.grinnell.csc207.blocks.HAlignment;
 import edu.grinnell.csc207.blocks.HComp;
 import edu.grinnell.csc207.blocks.Line;
@@ -62,6 +64,9 @@ public class Blocks {
     AsciiBlock boxedLine = new Boxed(line);
     AsciiBlock boxedboxedLine = new Boxed(boxedLine);
     AsciiBlock boxedExes = new Boxed(exes);
+    // Grid is the example in Part 2:
+    AsciiBlock grid = new Grid(new Boxed(new Empty()), 3, 2);
+    // ------------------------------
 
     pen.println("Original Values");
     figure(pen, "line", line);
@@ -69,6 +74,9 @@ public class Blocks {
     figure(pen, "boxedLine", boxedLine);
     figure(pen, "boxedboxedLine", boxedboxedLine);
     figure(pen, "boxedExes", boxedExes);
+    // Printing the Grid below:
+    figure(pen, "grid", grid);
+    // ------------------------
 
     separator(pen);
     pen.println("After changing the line.");
