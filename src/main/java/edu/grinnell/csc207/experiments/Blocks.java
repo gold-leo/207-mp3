@@ -1,18 +1,19 @@
 package edu.grinnell.csc207.experiments;
 
+import java.io.PrintWriter;
+
 import edu.grinnell.csc207.blocks.AsciiBlock;
 import edu.grinnell.csc207.blocks.Boxed;
 import edu.grinnell.csc207.blocks.Empty;
 import edu.grinnell.csc207.blocks.Grid;
 import edu.grinnell.csc207.blocks.HAlignment;
 import edu.grinnell.csc207.blocks.HComp;
+import edu.grinnell.csc207.blocks.HFlip;
 import edu.grinnell.csc207.blocks.Line;
 import edu.grinnell.csc207.blocks.Lines;
 import edu.grinnell.csc207.blocks.Rect;
-import edu.grinnell.csc207.blocks.VComp;
 import edu.grinnell.csc207.blocks.VAlignment;
-
-import java.io.PrintWriter;
+import edu.grinnell.csc207.blocks.VComp;
 
 /**
  * Experiments with ASCII blocks.
@@ -126,6 +127,8 @@ public class Blocks {
     AsciiBlock a = new Rect('A', 5, 2);
     AsciiBlock b = new Rect('B', 3, 3);
     AsciiBlock c = new Rect('C', 2, 6);
+    AsciiBlock d = new Lines("alpha\nbeta\ngamma\ndelta\nepsilon");
+    AsciiBlock e = new Lines("this\nand\nthat");
     figure(pen, "a", a);
     figure(pen, "b", b);
     figure(pen, "c", c);
@@ -135,6 +138,9 @@ public class Blocks {
         new HComp(VAlignment.CENTER, new AsciiBlock[] {a, b, c}));
     figure(pen, "Bottom composition",
         new HComp(VAlignment.BOTTOM, new AsciiBlock[] {a, b, c}));
+    figure(pen, "HFlip a", new HComp(VAlignment.TOP, new AsciiBlock[] {a, b, c}));
+    figure(pen, "HFlip d", new HFlip(d));
+    figure(pen, "HFlip e", new HFlip(e));
 
     separator(pen);
     pen.println("Fun with vertical composition");

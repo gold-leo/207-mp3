@@ -6,7 +6,7 @@ import java.util.Arrays;
  * The horizontal composition of blocks.
  *
  * @author Samuel A. Rebelsky
- * @author Your Name Here
+ * @author Kevin Tang
  */
 public class HComp implements AsciiBlock {
   // +--------+------------------------------------------------------------
@@ -71,7 +71,7 @@ public class HComp implements AsciiBlock {
    *   if i is outside the range of valid rows.
    */
   public String row(int i) throws Exception {
-    if (i < 0 || i > this.height()) {
+    if (i < 0 || i >= this.height()) {
       throw new Exception("Illegal Row Number");
     } //If Statement
     

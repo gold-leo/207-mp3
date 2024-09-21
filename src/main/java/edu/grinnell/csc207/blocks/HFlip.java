@@ -4,7 +4,7 @@ package edu.grinnell.csc207.blocks;
  * A horizontally flipped ASCII block.
  *
  * @author Samuel A. Rebelsky
- * @author Your Name Here
+ * @author Kevin Tang
  */
 public class HFlip implements AsciiBlock {
   // +--------+------------------------------------------------------------
@@ -45,7 +45,16 @@ public class HFlip implements AsciiBlock {
    *   If the row is invalid.
    */
   public String row(int i) throws Exception {
-    throw new Exception("Not yet implemented"); // STUB
+    if (i < 0 || i >= this.height()) {
+      throw new Exception("Illegal Row Number");
+    } //If Statement
+    int currWidth = this.block.width();
+    String org = this.block.row(i);
+    StringBuilder rowAdj = new StringBuilder();
+    for (int j = 0; j < currWidth; j++) {
+      rowAdj.append(org.charAt(currWidth - 1 - j));
+    }
+    return rowAdj.toString();
   } // row(int)
 
   /**
@@ -54,7 +63,7 @@ public class HFlip implements AsciiBlock {
    * @return the number of rows
    */
   public int height() {
-    return 0;   // STUB
+    return this.block.height();
   } // height()
 
   /**
@@ -63,7 +72,7 @@ public class HFlip implements AsciiBlock {
    * @return the number of columns
    */
   public int width() {
-    return 0;   // STUB
+    return this.block.width();   // STUB
   } // width()
 
   /**
@@ -76,6 +85,16 @@ public class HFlip implements AsciiBlock {
    *    false otherwise.
    */
   public boolean eqv(AsciiBlock other) {
-    return false;       // STUB
+    int currHeight = this.block.height();
+    for (int i = 0; i < currHeight; i++) {
+      try {
+        if (!this.block.row(i).equals(other.row(i))) {
+          return false;
+        }
+      } catch (Exception e) {
+        return false;
+      }
+    }
+    return true;
   } // eqv(AsciiBlock)
 } // class HFlip
