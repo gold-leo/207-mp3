@@ -78,8 +78,46 @@ public class Trimmed implements AsciiBlock {
    *   If the row is invalid.
    */
   public String row(int i) throws Exception {
-    throw new Exception("Not yet implemented"); // STUB
+    if (i < 0 || i >= this.height()) {
+      throw new Exception("Illegal Row Number");
+    }
+
+    int rowInit = WAdj(this.width);
+    int colInit = HAdj(this.height);
+
+    String rowAdj = this.block.row(rowInit + i);
+    return rowAdj.substring(colInit, colInit + this.width);
   } // row(int)
+
+  private int WAdj (int width) {
+    int standard = this.block.width();
+    switch (this.valign) {
+      case TOP:
+        return 0;
+      case BOTTOM:
+        return standard - width;
+      case CENTER:
+        return (standard - width) / 2;
+      default:
+        return 0;
+    }
+  }
+
+
+  private int HAdj (int height) {
+    int standard = this.block.height();
+    switch (this.valign) {
+      case TOP:
+        return 0;
+      case BOTTOM:
+        return standard - height;
+      case CENTER:
+        return (standard - height) / 2;
+      default:
+        return 0;
+    }
+  }
+
 
   /**
    * Determine how many rows are in the block.
@@ -87,7 +125,7 @@ public class Trimmed implements AsciiBlock {
    * @return the number of rows
    */
   public int height() {
-    return 0;   // STUB
+    return this.height;
   } // height()
 
   /**
@@ -96,7 +134,7 @@ public class Trimmed implements AsciiBlock {
    * @return the number of columns
    */
   public int width() {
-    return 0;   // STUB
+    return this.width;
   } // width()
 
   /**
@@ -109,6 +147,22 @@ public class Trimmed implements AsciiBlock {
    *    false otherwise.
    */
   public boolean eqv(AsciiBlock other) {
-    return false;       // STUB
+    return ((other instanceof Trimmed) && (this.eqv((Trimmed) other)));
   } // eqv(AsciiBlock)
+
+
+  /**
+   * Determine if another grid is structurally equivalent to this grid.
+   *
+   * @param other
+   *   The grid to compare to this grid.
+   *
+   * @return true if the two blocks are structurally equivalent and
+   *    false otherwise.
+   */
+  public boolean eqv(Trimmed other) {
+    return this.width == other.width && this.height == other.height
+        && this.halign == other.halign && this.valign == other.valign
+        && this.block.eqv(other.block);
+  } // eqv(Grid)
 } // class Trimmed

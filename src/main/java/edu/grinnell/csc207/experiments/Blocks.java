@@ -12,6 +12,7 @@ import edu.grinnell.csc207.blocks.HFlip;
 import edu.grinnell.csc207.blocks.Line;
 import edu.grinnell.csc207.blocks.Lines;
 import edu.grinnell.csc207.blocks.Rect;
+import edu.grinnell.csc207.blocks.Trimmed;
 import edu.grinnell.csc207.blocks.VAlignment;
 import edu.grinnell.csc207.blocks.VComp;
 
@@ -141,6 +142,10 @@ public class Blocks {
     figure(pen, "HFlip a", new HComp(VAlignment.TOP, new AsciiBlock[] {a, b, c}));
     figure(pen, "HFlip d", new HFlip(d));
     figure(pen, "HFlip e", new HFlip(e));
+    figure(pen, "Trimmed a",
+        new Trimmed(a, HAlignment.LEFT, VAlignment.TOP, 2, 2));
+        figure(pen, "Trimmed e",
+        new Trimmed(e, HAlignment.LEFT, VAlignment.TOP, 2, 2));
 
     separator(pen);
     pen.println("Fun with vertical composition");
