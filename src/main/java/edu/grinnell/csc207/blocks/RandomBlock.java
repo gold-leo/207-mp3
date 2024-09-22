@@ -7,6 +7,10 @@ import java.util.Random;
  */
 public class RandomBlock implements AsciiBlock {
 
+  // +--------+------------------------------------------------------------
+  // | Fields |
+  // +--------+
+
   /**
    * The original block.
    */
@@ -17,12 +21,18 @@ public class RandomBlock implements AsciiBlock {
    */
   private final Random random;
 
+  // +--------------+------------------------------------------------------
+  // | Constructors |
+  // +--------------+
 
   public RandomBlock(AsciiBlock original) {
     this.block = original;
     this.random = new Random();
   } //RandomBlock
 
+  // +---------+-----------------------------------------------------------
+  // | Methods |
+  // +---------+
 
   public String row(int i) throws Exception {
     if (i < 0 || i >= this.height()) {
