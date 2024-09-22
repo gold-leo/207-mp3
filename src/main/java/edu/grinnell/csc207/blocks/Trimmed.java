@@ -80,43 +80,43 @@ public class Trimmed implements AsciiBlock {
   public String row(int i) throws Exception {
     if (i < 0 || i >= this.height()) {
       throw new Exception("Illegal Row Number");
-    }
+    } //if statement
 
-    int rowInit = WAdj(this.width);
-    int colInit = HAdj(this.height);
+    int rowInit = wAdj(this.width);
+    int colInit = hAdj(this.height);
 
     String rowAdj = this.block.row(rowInit + i);
     return rowAdj.substring(colInit, colInit + this.width);
   } // row(int)
 
-  private int WAdj (int width) {
+  private int wAdj(int wid) {
     int standard = this.block.width();
     switch (this.valign) {
       case TOP:
         return 0;
       case BOTTOM:
-        return standard - width;
+        return standard - wid;
       case CENTER:
-        return (standard - width) / 2;
+        return (standard - wid) / 2;
       default:
         return 0;
-    }
-  }
+    } //switch
+  } //wAdj
 
 
-  private int HAdj (int height) {
+  private int hAdj(int heigh) {
     int standard = this.block.height();
     switch (this.valign) {
       case TOP:
         return 0;
       case BOTTOM:
-        return standard - height;
+        return standard - heigh;
       case CENTER:
-        return (standard - height) / 2;
+        return (standard - heigh) / 2;
       default:
         return 0;
-    }
-  }
+    } //switch
+  } //hAdj
 
 
   /**

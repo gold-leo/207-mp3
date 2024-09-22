@@ -74,12 +74,12 @@ public class HComp implements AsciiBlock {
     if (i < 0 || i >= this.height()) {
       throw new Exception("Illegal Row Number");
     } //If Statement
-    
+
     StringBuilder rowAdj = new StringBuilder();
     for (int j = 0; j < this.blocks.length; j++) {
       int currHeight = this.blocks[j].height();
       int currWidth = this.blocks[j].width();
-      int numAdj = HAdj(currHeight);
+      int numAdj = hAdj(currHeight);
       if (i < numAdj || i >= numAdj + currHeight) {
         rowAdj.append(" ".repeat(currWidth));
       } else {
@@ -90,7 +90,7 @@ public class HComp implements AsciiBlock {
   } // row(int)
 
 
-  private int HAdj (int height) {
+  private int hAdj(int height) {
     int standard = this.height();
     switch (align) {
       case TOP:
@@ -101,8 +101,8 @@ public class HComp implements AsciiBlock {
         return (standard - height) / 2;
       default:
         return 0;
-    }
-  }
+    } //switch
+  } //hAdj
 
   /**
    * Determine how many rows are in the block.
@@ -113,7 +113,7 @@ public class HComp implements AsciiBlock {
     int height = 0;
     for (int i = 0; i < this.blocks.length; i++) {
       height = Math.max(height, this.blocks[i].height());
-    }
+    } //for loop
     return height;
   } // height()
 
@@ -126,7 +126,7 @@ public class HComp implements AsciiBlock {
     int width = 0;
     for (int i = 0; i < this.blocks.length; i++) {
       width += this.blocks[i].width();
-    }
+    } //for loop
     return width;
   } // width()
 
@@ -159,12 +159,12 @@ public class HComp implements AsciiBlock {
   public boolean eqv(HComp other) {
     if (!(this.align == other.align && this.blocks.length == other.blocks.length)) {
       return false;
-    }
+    } //if statement
     for (int i = 0; i < this.blocks.length; i++) {
       if (!this.blocks[i].eqv(other.blocks[i])) {
         return false;
-      }
-    }
+      } //if statement
+    } //for loop
     return true;
   } // eqv(Grid)
 } // class HComp

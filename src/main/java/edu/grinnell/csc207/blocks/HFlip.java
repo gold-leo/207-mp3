@@ -53,7 +53,7 @@ public class HFlip implements AsciiBlock {
     StringBuilder rowAdj = new StringBuilder();
     for (int j = 0; j < currWidth; j++) {
       rowAdj.append(org.charAt(currWidth - 1 - j));
-    }
+    } //for loop
     return rowAdj.toString();
   } // row(int)
 
@@ -72,7 +72,7 @@ public class HFlip implements AsciiBlock {
    * @return the number of columns
    */
   public int width() {
-    return this.block.width();   // STUB
+    return this.block.width();
   } // width()
 
   /**
@@ -90,11 +90,11 @@ public class HFlip implements AsciiBlock {
       try {
         if (!this.block.row(i).equals(other.row(i))) {
           return false;
-        }
+        } //if statement
       } catch (Exception e) {
         return false;
-      }
-    }
+      } //catch exception
+    } //for loop
     return true;
   } // eqv(AsciiBlock)
 } // class HFlip

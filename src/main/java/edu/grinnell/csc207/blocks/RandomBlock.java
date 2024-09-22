@@ -25,6 +25,9 @@ public class RandomBlock implements AsciiBlock {
   // | Constructors |
   // +--------------+
 
+  /**
+   * @param original original (not randomized) block
+   */
   public RandomBlock(AsciiBlock original) {
     this.block = original;
     this.random = new Random();
@@ -34,25 +37,33 @@ public class RandomBlock implements AsciiBlock {
   // | Methods |
   // +---------+
 
+  /**
+   * @param i row number
+   * @return the row of the block
+   */
   public String row(int i) throws Exception {
     if (i < 0 || i >= this.height()) {
       throw new Exception("Row index out of bounds.");
-    }
+    } //if statement
 
     String rowInit = this.block.row(i);
     return new String(randomArray(rowInit.toCharArray()));
   } //row
 
 
+  /**
+   * @param arr character array
+   * @return randomized character array
+   */
   private char[] randomArray(char[] arr) {
     for (int j = arr.length - 1; j > 0; j--) {
       int index = random.nextInt(j + 1);
       char temp = arr[j];
       arr[j] = arr[index];
       arr[index] = temp;
-    }
+    } //for loop
     return arr;
-  }
+  } //randomArray
 
   /**
    * Determine how many rows are in the block.
