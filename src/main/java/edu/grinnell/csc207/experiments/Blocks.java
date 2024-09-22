@@ -68,6 +68,7 @@ public class Blocks {
     AsciiBlock boxedExes = new Boxed(exes);
     // Grid is the example in Part 2:
     AsciiBlock grid = new Grid(new Boxed(new Empty()), 3, 2);
+    AsciiBlock align = new VComp(HAlignment.CENTER, new AsciiBlock[] {line, exes, grid});
     // ------------------------------
 
     pen.println("Original Values");
@@ -78,6 +79,7 @@ public class Blocks {
     figure(pen, "boxedExes", boxedExes);
     // Printing the Grid below:
     figure(pen, "grid", grid);
+    figure(pen, "align", align);
     // ------------------------
 
     separator(pen);
