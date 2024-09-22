@@ -11,6 +11,7 @@ import edu.grinnell.csc207.blocks.HComp;
 import edu.grinnell.csc207.blocks.HFlip;
 import edu.grinnell.csc207.blocks.Line;
 import edu.grinnell.csc207.blocks.Lines;
+import edu.grinnell.csc207.blocks.Padded;
 import edu.grinnell.csc207.blocks.Rect;
 import edu.grinnell.csc207.blocks.Trimmed;
 import edu.grinnell.csc207.blocks.VAlignment;
@@ -66,7 +67,9 @@ public class Blocks {
     AsciiBlock boxedLine = new Boxed(line);
     AsciiBlock boxedboxedLine = new Boxed(boxedLine);
     AsciiBlock boxedExes = new Boxed(exes);
+    // Tests
     // Grid is the example in Part 2:
+    AsciiBlock pad = new Padded(line, '.', HAlignment.CENTER, VAlignment.CENTER, 6, 2);
     AsciiBlock grid = new Grid(new Boxed(new Empty()), 3, 2);
     AsciiBlock align = new VComp(HAlignment.CENTER, new AsciiBlock[] {line, exes, grid});
     // ------------------------------
@@ -77,9 +80,10 @@ public class Blocks {
     figure(pen, "boxedLine", boxedLine);
     figure(pen, "boxedboxedLine", boxedboxedLine);
     figure(pen, "boxedExes", boxedExes);
-    // Printing the Grid below:
+    // Printing the Tests below:
     figure(pen, "grid", grid);
     figure(pen, "align", align);
+    figure(pen, "pad", pad);
     // ------------------------
 
     separator(pen);

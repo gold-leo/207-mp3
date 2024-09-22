@@ -86,7 +86,59 @@ public class Padded implements AsciiBlock {
    *   If the row is invalid.
    */
   public String row(int i) throws Exception {
-    throw new Exception("Not yet implemented"); // STUB
+    if (i < 0 || i >= this.height()) {
+      throw new Exception("Illegal row number " + i);
+    } // exception
+    String blockRow = new String(pad.repeat(this.width()));
+    int blockIndex = i;
+
+    int h = this.height() - block.height();
+    if (h < 0) {
+      throw new Exception("Height of inner block larger than height of padded block");
+    }
+    switch (valign) {
+      case TOP:
+        if (i > block.height()) {
+          return blockRow;
+        }
+        blockIndex = i;
+        break;
+      case BOTTOM:
+        if (i < h) {
+          return blockRow;
+        }
+        blockIndex = i - h;
+        break;
+      case CENTER:
+        int c = h / 2;
+        if (i >= (this.height() - c - (h % 2)) || i < c) {
+          return blockRow;
+        }
+        blockIndex = i - c;
+        break;
+      default:
+        break;
+    }
+
+    int w = this.width() - block.width();
+    if (w < 0) {
+      throw new Exception("Width of inner block larger than width of padded block (" + w + ")");
+    }
+    switch (halign) {
+      case RIGHT:
+        blockRow = new String(pad.repeat(w) + block.row(blockIndex));
+        break;
+      case LEFT:
+        blockRow = new String(block.row(blockIndex) + pad.repeat(w));
+        break;
+      case CENTER:
+        int h_s = w / 2; // num of spaces on each side
+        blockRow = new String(pad.repeat(h_s) + block.row(blockIndex) + pad.repeat(h_s + (w % 2)));
+        break;
+      default:
+        break;
+    }
+    return blockRow;
   } // row(int)
 
   /**
@@ -95,7 +147,7 @@ public class Padded implements AsciiBlock {
    * @return the number of rows
    */
   public int height() {
-    return 0;   // STUB
+    return this.height;
   } // height()
 
   /**
@@ -104,7 +156,7 @@ public class Padded implements AsciiBlock {
    * @return the number of columns
    */
   public int width() {
-    return 0;   // STUB
+    return this.width;
   } // width()
 
   /**
