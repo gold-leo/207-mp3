@@ -87,7 +87,7 @@ public class Surrounded implements AsciiBlock {
     return 2 + this.contents.width();
   } // width()
 
-  /**
+/**
    * Determine if another block is structurally equivalent to this block.
    *
    * @param other
@@ -97,6 +97,20 @@ public class Surrounded implements AsciiBlock {
    *    false otherwise.
    */
   public boolean eqv(AsciiBlock other) {
-    return false;       // STUB
+    return ((other instanceof Surrounded) && (this.eqv((Surrounded) other)));
   } // eqv(AsciiBlock)
+
+  /**
+   * Determine if another grid is structurally equivalent to this grid.
+   *
+   * @param other
+   *   The grid to compare to this grid.
+   *
+   * @return true if the two blocks are structurally equivalent and
+   *    false otherwise.
+   */
+  public boolean eqv(Surrounded other) {
+    return (this.height() == other.height()) && (this.width() == other.width())
+        && (this.contents.eqv(other.contents)) && (this.surroundChar == other.surroundChar);
+  } // eqv(Grid)
 } // class Surrounded
