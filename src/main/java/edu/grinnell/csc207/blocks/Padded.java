@@ -169,6 +169,21 @@ public class Padded implements AsciiBlock {
    *    false otherwise.
    */
   public boolean eqv(AsciiBlock other) {
-    return false;       // STUB
+    return ((other instanceof Padded) && (this.eqv((Padded) other)));
   } // eqv(AsciiBlock)
+
+  /**
+   * Determine if another padded is structurally equivalent to this padded.
+   *
+   * @param other
+   *   The padded to compare to this padded.
+   *
+   * @return true if the two blocks are structurally equivalent and
+   *    false otherwise.
+   */
+  public boolean eqv(Padded other) {
+    return (this.height() == other.height()) && (this.width() == other.width())
+        && (this.block.eqv(other.block)) && (this.halign == other.halign) 
+        && (this.valign == other.valign) && (this.pad == other.pad);
+  } // eqv ()
 } // class Padded
