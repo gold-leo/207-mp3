@@ -81,6 +81,16 @@ public class VFlip implements AsciiBlock {
    *    false otherwise.
    */
   public boolean eqv(AsciiBlock other) {
-    return false;       // STUB
+    int currHeight = this.block.height();
+    for (int i = 0; i < currHeight; i++) {
+      try {
+        if (!this.block.row(i).equals(other.row(i))) {
+          return false;
+        }
+      } catch (Exception e) {
+        return false;
+      }
+    }
+    return true;
   } // eqv(AsciiBlock)
-} // class VFlip
+} // class HFlip
