@@ -49,7 +49,7 @@ public class VFlip implements AsciiBlock {
       throw new Exception("Illegal row number " + i);
     } // exception
 
-    String revString = new StringBuilder(row(i)).reverse().toString();
+    String revString = new StringBuilder(block.row(i)).reverse().toString();
     return revString;
   } // row(int)
 
