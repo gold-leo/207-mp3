@@ -95,18 +95,18 @@ public class Padded implements AsciiBlock {
     int h = this.height() - block.height();
     if (h < 0) {
       throw new Exception("Height of inner block larger than height of padded block");
-    }
+    } // if
     switch (valign) {
       case TOP:
         if (i > block.height()) {
           return blockRow;
-        }
+        } // if
         blockIndex = i;
         break;
       case BOTTOM:
         if (i < h) {
           return blockRow;
-        }
+        } // if
         blockIndex = i - h;
         break;
       case CENTER:
@@ -118,12 +118,12 @@ public class Padded implements AsciiBlock {
         break;
       default:
         break;
-    }
+    } // switch
 
     int w = this.width() - block.width();
     if (w < 0) {
       throw new Exception("Width of inner block larger than width of padded block (" + w + ")");
-    }
+    } // if
     switch (halign) {
       case RIGHT:
         blockRow = new String(pad.repeat(w) + block.row(blockIndex));
@@ -132,12 +132,12 @@ public class Padded implements AsciiBlock {
         blockRow = new String(block.row(blockIndex) + pad.repeat(w));
         break;
       case CENTER:
-        int h_s = w / 2; // num of spaces on each side
-        blockRow = new String(pad.repeat(h_s) + block.row(blockIndex) + pad.repeat(h_s + (w % 2)));
+        int hs = w / 2; // num of spaces on each side
+        blockRow = new String(pad.repeat(hs) + block.row(blockIndex) + pad.repeat(hs + (w % 2)));
         break;
       default:
         break;
-    }
+    } // switch
     return blockRow;
   } // row(int)
 
@@ -183,7 +183,7 @@ public class Padded implements AsciiBlock {
    */
   public boolean eqv(Padded other) {
     return (this.height() == other.height()) && (this.width() == other.width())
-        && (this.block.eqv(other.block)) && (this.halign == other.halign) 
+        && (this.block.eqv(other.block)) && (this.halign == other.halign)
         && (this.valign == other.valign) && (this.pad == other.pad);
   } // eqv ()
 } // class Padded

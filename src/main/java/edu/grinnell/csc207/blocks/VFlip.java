@@ -87,11 +87,11 @@ public class VFlip implements AsciiBlock {
       try {
         if (!this.block.row(i).equals(other.row(i))) {
           return false;
-        }
+        } // if
       } catch (Exception e) {
         return false;
-      }
-    }
+      } // try
+    } // iterate through rows
     return true;
   } // eqv(AsciiBlock)
 } // class HFlip

@@ -100,8 +100,8 @@ public class VComp implements AsciiBlock {
         str = new String(b.row(row) + sp.repeat(spaces));
         break;
       case CENTER:
-        int h_s = spaces / 2; // num of spaces on each side
-        str = new String(sp.repeat(h_s) + b.row(row) + sp.repeat(h_s + (spaces % 2)));
+        int hs = spaces / 2; // num of spaces on each side
+        str = new String(sp.repeat(hs) + b.row(row) + sp.repeat(hs + (spaces % 2)));
         break;
       default:
         break;
@@ -165,12 +165,12 @@ public class VComp implements AsciiBlock {
   public boolean eqv(VComp other) {
     if (!(this.align == other.align && this.blocks.length == other.blocks.length)) {
       return false;
-    }
+    } // if
     for (int i = 0; i < this.blocks.length; i++) {
       if (!this.blocks[i].eqv(other.blocks[i])) {
         return false;
-      }
-    }
+      } // if
+    } // iterate
     return true;
   } // eqv(Grid)
 } // class HComp
