@@ -78,7 +78,7 @@ public class Line implements AsciiBlock {
    *    false otherwise.
    */
   public boolean eqv(AsciiBlock other) {
-    return false;       // STUB
+    return (other instanceof Line) && (this.line.equals(((Line)other).line));
   } // eqv(AsciiBlock)
 
   // +---------------+-----------------------------------------------
