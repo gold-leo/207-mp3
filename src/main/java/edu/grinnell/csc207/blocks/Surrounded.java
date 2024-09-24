@@ -110,7 +110,6 @@ public class Surrounded implements AsciiBlock {
    *    false otherwise.
    */
   public boolean eqv(Surrounded other) {
-    return (this.height() == other.height()) && (this.width() == other.width())
-        && (this.contents.eqv(other.contents)) && (this.surroundChar == other.surroundChar);
+    return (this.contents.eqv(other.contents)) && (this.surroundChar.equals(other.surroundChar));
   } // eqv(Grid)
 } // class Surrounded
