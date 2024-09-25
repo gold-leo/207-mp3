@@ -44,7 +44,7 @@ public class Art80x24 {
 
     AsciiBlock b = new Rect('&', 68, 1);
     AsciiBlock b2 = new Rect('*', 68, 1);
-  
+
 
     AsciiBlock wheel = new Rect('&', 4, 4);
     AsciiBlock spa = new Rect(' ', 52, 6);
@@ -56,7 +56,8 @@ public class Art80x24 {
     AsciiBlock two = new Line("/                                          \\");
     AsciiBlock one = new Line("/****************************************\\");
 
-    AsciiBlock window = new VComp(HAlignment.CENTER, new AsciiBlock[] {one, two, three, four, five});
+    AsciiBlock window = new VComp(HAlignment.CENTER, new AsciiBlock[]
+      {one, two, three, four, five});
 
 
 
