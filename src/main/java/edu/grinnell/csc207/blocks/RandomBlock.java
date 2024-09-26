@@ -66,8 +66,6 @@ public class RandomBlock implements AsciiBlock {
   } //randomArray
 
   /**
-   * Determine how many rows are in the block.
-   *
    * @return The number of rows in the block.
    */
   public int height() {
@@ -75,8 +73,6 @@ public class RandomBlock implements AsciiBlock {
   } // height()
 
   /**
-   * Determine how many columns are in the block.
-   *
    * @return The number of columns in the block.
    */
   public int width() {
@@ -84,11 +80,8 @@ public class RandomBlock implements AsciiBlock {
   } // width()
 
   /**
-   * Determine if another RandomBlock is structurally equivalent to this RandomBlock.
-   *
    * @param other
    *   The RandomBlock to compare to this RandomBlock.
-   *
    * @return true if the two blocks are structurally equivalent and
    *    false otherwise.
    */
