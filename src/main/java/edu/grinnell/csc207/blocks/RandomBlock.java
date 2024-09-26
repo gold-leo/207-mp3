@@ -84,10 +84,10 @@ public class RandomBlock implements AsciiBlock {
   } // width()
 
   /**
-   * Determine if another grid is structurally equivalent to this grid.
+   * Determine if another RandomBlock is structurally equivalent to this RandomBlock.
    *
    * @param other
-   *   The grid to compare to this grid.
+   *   The RandomBlock to compare to this RandomBlock.
    *
    * @return true if the two blocks are structurally equivalent and
    *    false otherwise.

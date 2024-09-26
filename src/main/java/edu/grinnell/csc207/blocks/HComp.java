@@ -148,10 +148,10 @@ public class HComp implements AsciiBlock {
 
 
   /**
-   * Determine if another grid is structurally equivalent to this grid.
+   * Determine if another HComp is structurally equivalent to this HComp.
    *
    * @param other
-   *   The grid to compare to this grid.
+   *   The HComp to compare to this HComp.
    *
    * @return true if the two blocks are structurally equivalent and
    *    false otherwise.
@@ -166,5 +166,5 @@ public class HComp implements AsciiBlock {
       } //if statement
     } //for loop
     return true;
-  } // eqv(Grid)
+  } // eqv(HComp)
 } // class HComp
