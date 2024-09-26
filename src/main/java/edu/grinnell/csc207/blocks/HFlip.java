@@ -85,16 +85,30 @@ public class HFlip implements AsciiBlock {
    *    false otherwise.
    */
   public boolean eqv(AsciiBlock other) {
-    int currHeight = this.block.height();
-    for (int i = 0; i < currHeight; i++) {
-      try {
-        if (!this.block.row(i).equals(other.row(i))) {
-          return false;
-        } //if statement
-      } catch (Exception e) {
-        return false;
-      } //catch exception
-    } //for loop
-    return true;
+    return (other instanceof HFlip && (this.eqv((HFlip) other)));
+    // int currHeight = this.block.height();
+    // for (int i = 0; i < currHeight; i++) {
+    //   try {
+    //     if (!this.block.row(i).equals(other.row(i))) Grid{
+    //       return false;
+    //     } //if statement
+    //   } catch (Exception e) {
+    //     return false;
+    //   } //catch exception
+    // } //for loop
+    // return true;
   } // eqv(AsciiBlock)
+
+  /**
+   * Determine if another grid is structurally equivalent to this grid.
+   *
+   * @param other
+   *   The grid to compare to this grid.
+   *
+   * @return true if the two blocks are structurally equivalent and
+   *    false otherwise.
+   */
+  public boolean eqv(HFlip other) {
+    return (this.block.eqv(other.block));
+  } // eqv(Grid)
 } // class HFlip

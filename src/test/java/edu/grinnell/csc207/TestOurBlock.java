@@ -23,15 +23,15 @@ public class TestOurBlock {
    */
   @Test
   public void testRandomBlockBasicBehaviors() throws Exception {
-    // Test 1: Two RandomBlocks with the same content should not be equivalent
+    // Test 1: Two RandomBlocks with the same content should not equal
     RandomBlock randomBlock1 = new RandomBlock(new Lines("abcde\nfghij\nklmno"));
     RandomBlock randomBlock2 = new RandomBlock(new Lines("abcde\nfghij\nklmno"));
     assertFalse(AsciiBlock.equal(randomBlock1, randomBlock2), "Randomized blocks should not be structurally equivalent");
 
-    // Test 2: RandomBlock should be equivalent to itself
+    // Test 2: RandomBlock should equal to itself
     assertTrue(randomBlock1.eqv(randomBlock2), "A RandomBlock should be equivalent to itself");
 
-    // Test 3: Randomized row should be different from the original content
+    // Test 3: Randomized row should be different from the original
     assertFalse(randomBlock1.row(0).equals("abcde"), "RandomBlock row should be randomized");
 
     // Test 4: Empty RandomBlock should return an empty row
