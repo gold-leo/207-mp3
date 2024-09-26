@@ -153,6 +153,8 @@ public class Blocks {
         new Trimmed(a, HAlignment.LEFT, VAlignment.TOP, 2, 2));
     figure(pen, "random block", new RandomBlock(e));
     figure(pen, "random block", new RandomBlock(d));
+    RandomBlock randomBlock1 = new RandomBlock(new Lines("abcde\nfghij\nklmno"));
+    figure(pen, "random block", randomBlock1);
 
     separator(pen);
     pen.println("Fun with vertical composition");

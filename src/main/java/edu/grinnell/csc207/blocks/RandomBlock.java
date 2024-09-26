@@ -92,7 +92,14 @@ public class RandomBlock implements AsciiBlock {
    * @return true if the two blocks are structurally equivalent and
    *    false otherwise.
    */
-  public boolean eqv(AsciiBlock other) {
-    return ((other instanceof RandomBlock) && (this.eqv((RandomBlock) other)));
-  } // eqv
+  @Override
+    public boolean eqv(AsciiBlock other) {
+        if (!(other instanceof RandomBlock)) {
+            return false;
+        }
+       
+        RandomBlock otherRandomBlock = (RandomBlock) other;
+        return this.block.eqv(otherRandomBlock.block);
+    }
+
 } // class RandomBlock
