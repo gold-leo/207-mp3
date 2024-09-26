@@ -113,7 +113,7 @@ public class Padded implements AsciiBlock {
         int c = h / 2;
         if (i >= (this.height() - c - (h % 2)) || i < c) {
           return blockRow;
-        }
+        } // if
         blockIndex = i - c;
         break;
       default:
