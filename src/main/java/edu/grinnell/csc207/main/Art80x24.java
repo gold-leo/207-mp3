@@ -9,6 +9,7 @@ import edu.grinnell.csc207.blocks.Padded;
 import edu.grinnell.csc207.blocks.Rect;
 import edu.grinnell.csc207.blocks.VAlignment;
 import edu.grinnell.csc207.blocks.VComp;
+import edu.grinnell.csc207.blocks.Grid;
 
 import java.io.PrintWriter;
 
@@ -64,6 +65,9 @@ public class Art80x24 {
     AsciiBlock car = new VComp(HAlignment.CENTER, new AsciiBlock[] {window, front, b2, b, stands});
     AsciiBlock art = new Padded(car, ' ', HAlignment.CENTER, VAlignment.CENTER, 80, 24);
     AsciiBlock.print(pen, art);
+    AsciiBlock n = new Grid(new Line("X"), 4, 6);
+    AsciiBlock h = new Grid(new Line("X"), 4, 6);
+    h.eqv(n);
     pen.close();
   } // main(String[])
 } // class Art80x24

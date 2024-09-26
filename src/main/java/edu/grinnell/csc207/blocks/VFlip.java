@@ -72,7 +72,7 @@ public class VFlip implements AsciiBlock {
     return block.width();
   } // width()
 
-  /**
+    /**
    * Determine if another block is structurally equivalent to this block.
    *
    * @param other
@@ -82,16 +82,19 @@ public class VFlip implements AsciiBlock {
    *    false otherwise.
    */
   public boolean eqv(AsciiBlock other) {
-    int currHeight = this.block.height();
-    for (int i = 0; i < currHeight; i++) {
-      try {
-        if (!this.block.row(i).equals(other.row(i))) {
-          return false;
-        } // if
-      } catch (Exception e) {
-        return false;
-      } // try
-    } // iterate through rows
-    return true;
+    return ((other instanceof VFlip) && (this.eqv((VFlip) other)));
+  } // eqv(AsciiBlock)
+
+  /**
+   * Determine if another block is structurally equivalent to this block.
+   *
+   * @param other
+   *   The block to compare to this block.
+   *
+   * @return true if the two blocks are structurally equivalent and
+   *    false otherwise.
+   */
+  public boolean eqv(VFlip other) {
+    return this.block.eqv(((VFlip) other).block);
   } // eqv(AsciiBlock)
 } // class HFlip

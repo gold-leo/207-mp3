@@ -75,7 +75,7 @@ public class HFlip implements AsciiBlock {
     return this.block.width();
   } // width()
 
-  /**
+    /**
    * Determine if another block is structurally equivalent to this block.
    *
    * @param other
@@ -85,6 +85,7 @@ public class HFlip implements AsciiBlock {
    *    false otherwise.
    */
   public boolean eqv(AsciiBlock other) {
+<<<<<<< HEAD
     return (other instanceof HFlip && (this.eqv((HFlip) other)));
     // int currHeight = this.block.height();
     // for (int i = 0; i < currHeight; i++) {
@@ -97,6 +98,22 @@ public class HFlip implements AsciiBlock {
     //   } //catch exception
     // } //for loop
     // return true;
+=======
+    return ((other instanceof HFlip) && (this.eqv((HFlip) other)));
+  } // eqv(AsciiBlock)
+
+  /**
+   * Determine if another block is structurally equivalent to this block.
+   *
+   * @param other
+   *   The block to compare to this block.
+   *
+   * @return true if the two blocks are structurally equivalent and
+   *    false otherwise.
+   */
+  public boolean eqv(HFlip other) {
+    return this.block.eqv(((HFlip) other).block);
+>>>>>>> 764286dfc0216ee902c5bdc3f7a1ccdc372903a6
   } // eqv(AsciiBlock)
 
   /**
