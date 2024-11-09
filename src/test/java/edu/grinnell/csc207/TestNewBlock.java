@@ -84,7 +84,7 @@ public class TestNewBlock {
    */
   @Test
   public void testRandomBlockEdgeCaseOneElement() throws Exception {
-    // Test 8: RandomBlock row should still have the same length after randomization
+    // Test 9: RandomBlock with only one element shouldn't change after randomization
     RandomBlock randomBlock = new RandomBlock(new Lines("a"));
     assertEquals("a", randomBlock.row(0), "RandomBlock with only one element shouldn't change after randomization");
   }
