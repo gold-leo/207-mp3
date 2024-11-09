@@ -13,8 +13,10 @@ import edu.grinnell.csc207.blocks.Rect;
 
 /**
  * Tests for the RandomBlock class.
+ * @author Leo Goldman
+ * @author Kevin Tang
  */
-public class TestOurBlock {
+public class TestNewBlock {
 
     // +-------+-------------------------------------------------------
   // | Tests |
@@ -68,12 +70,22 @@ public class TestOurBlock {
   }
 
   /**
-   * Additional tests for edge cases
+   * Additional tests for edge case 1
    */
   @Test
-  public void testRandomBlockEdgeCases() throws Exception {
+  public void testRandomBlockEdgeCaseRow() throws Exception {
     // Test 8: RandomBlock row should still have the same length after randomization
     RandomBlock randomBlock = new RandomBlock(new Lines("hello\nworld"));
     assertEquals(5, randomBlock.row(0).length(), "RandomBlock row should have the same length after randomization");
+  }
+
+  /**
+   * Additional tests for edge case 2
+   */
+  @Test
+  public void testRandomBlockEdgeCaseOneElement() throws Exception {
+    // Test 8: RandomBlock row should still have the same length after randomization
+    RandomBlock randomBlock = new RandomBlock(new Lines("a"));
+    assertEquals("a", randomBlock.row(0), "RandomBlock with only one element shouldn't change after randomization");
   }
 }

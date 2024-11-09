@@ -5,6 +5,7 @@ package edu.grinnell.csc207.blocks;
  *
  * @author Samuel A. Rebelsky
  * @author Kevin Tang
+ * @author Leo Goldman
  */
 public class HFlip implements AsciiBlock {
   // +--------+------------------------------------------------------------

@@ -7,7 +7,6 @@ import java.util.Arrays;
  *
  * @author Samuel A. Rebelsky
  * @author Leo Goldman
- * @author Your Name Here
  */
 public class VComp implements AsciiBlock {
   // +--------+------------------------------------------------------------
