@@ -4,6 +4,7 @@ import java.util.Random;
 
 /**
  * RandomBlock takes an AsciiBlock and returns a randomized version of it.
+ * @author Kevin Tang
  */
 public class RandomBlock implements AsciiBlock {
 
